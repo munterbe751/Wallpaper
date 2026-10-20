@@ -130,7 +130,7 @@ def bluetooth_audio_connected():
     cmd = [
         "powershell", "-NoProfile", "-Command",
         "$devs = Get-PnpDevice -Class AudioEndpoint -PresentOnly | Where-Object Status -eq 'OK' | Select-Object -ExpandProperty FriendlyName; "
-        "foreach($d in $devs) { if($d -match 'Bluetooth|Headphones|Headset|Hands-Free|Audio|Kopfhörer') { exit 0 } } exit 1"
+        "foreach($d in $devs) { if($d -match 'Bluetooth|Headphones|Headset|Hands-Free|Kopfhörer') { exit 0 } } exit 1"
     ]
     try:
         res = subprocess.run(cmd, capture_output=True, text=True, timeout=10, creationflags=0x08000000)
